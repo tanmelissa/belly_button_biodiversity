@@ -1,8 +1,8 @@
-d3.json("samples.json").then(function(data){
+d3.json("./static/json/samples.json").then(function(data){
     console.log(data);
 });
 
-d3.json("samples.json").then(function(data){
+d3.json("./static/json/samples.json").then(function(data){
     firstPerson = data.metadata[0];
     Object.entries(firstPerson).forEach(([key, value]) =>
     {console.log(key +': ' + value);});
@@ -12,7 +12,7 @@ d3.json("samples.json").then(function(data){
 function init() {
     var selector = d3.select("#selDataset");
   
-    d3.json("samples.json").then((data) => {
+    d3.json("./static/json/samples.json").then((data) => {
       console.log(data);
       var sampleNames = data.names;
       sampleNames.forEach((sample) => {
@@ -31,7 +31,7 @@ function init() {
   };
 
   function buildMetadata(sample) {
-    d3.json("samples.json").then((data) => {
+    d3.json("./static/json/samples.json").then((data) => {
       var metadata = data.metadata;
       var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
       var result = resultArray[0];
